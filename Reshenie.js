@@ -144,3 +144,25 @@ Caesar(10)('script');   // }m|sz~
  addClass(obj, 'open'); // obj.className='new open'
  addClass(obj, 'open'); // obj.className='new open'
  addClass(obj, 'me'); // obj.className='new open me'
+
+/* Задача 6
+
+Напишите функцию camelize(str), которая преобразует строки вида «my-short-string» в «myShortString».
+То есть, дефисы удаляются, а все слова после них получают заглавную букву.
+
+// Ответ:
+*/
+
+function camelize(str) {
+	var arr = str.split('-');
+	str = arr[0];
+	for (var i = 1; i < arr.length; i++) {
+		str = str + arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+	}
+	return str;
+
+}
+
+camelize("background-color") // 'backgroundColor';
+camelize("list-style-image") // 'listStyleImage';
+camelize("-webkit-transition") //'WebkitTransition';
