@@ -117,3 +117,30 @@ let enc = Caesar(3);
 enc('ABC');             // DEF
 enc('hello');           // khoor
 Caesar(10)('script');   // }m|sz~
+
+
+/* Задача 5
+
+//Создайте функцию addClass(obj, cls), которая добавляет в список класс cls, но только если его там еще нет:
+
+// Ответ:
+*/
+
+ var obj = {
+  }
+ 
+ function addClass(obj, cls) {
+    var splited = obj.className ? obj.className.split(' ') : [];
+
+    for (var i = 0; i < splited.length; i++) {
+      if (splited[i] == cls) return;
+    }
+    splited.push(cls);
+    obj.className = splited.join(' ');
+
+  }
+ 
+ addClass(obj, 'new'); // obj.className='new'
+ addClass(obj, 'open'); // obj.className='new open'
+ addClass(obj, 'open'); // obj.className='new open'
+ addClass(obj, 'me'); // obj.className='new open me'
