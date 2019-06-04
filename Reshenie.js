@@ -220,3 +220,27 @@ fsread.readFile('input.txt', 'utf8',
 		fswrite.writeFile('output.txt', result);
             
 });
+
+/* Задача 9
+Дано целое число n. Требуется вывести все правильные скобочные последовательности длины 2 ⋅ n, упорядоченные лексикографически (см. https://ru.wikipedia.org/wiki/Лексикографический_порядок).
+В задаче используются только круглые скобки.
+Желательно получить решение, которое работает за время, пропорциональное общему количеству правильных скобочных последовательностей в ответе, и при этом использует объём памяти, пропорциональный n.
+// Ответ:
+*/
+
+const readline = require('readline');
+const rl = readline.createInterface({
+    input: process.stdin
+});
+rl.on('line', (input) => {
+	let  mygenerate  = (current, openbr, closed, n) => {
+     	if (openbr == n && closed == n){
+		process.stdout.write(current+'\n');
+		} else{
+			if (openbr < n) mygenerate(current + '(', openbr+1, closed, n);
+			if (closed<openbr) mygenerate(current + ')', openbr, closed+1, n);
+		}
+	}
+	mygenerate('', 0, 0, +input);	
+});
+
