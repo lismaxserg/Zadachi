@@ -166,3 +166,33 @@ function camelize(str) {
 camelize("background-color") // 'backgroundColor';
 camelize("list-style-image") // 'listStyleImage';
 camelize("-webkit-transition") //'WebkitTransition';
+
+/* Задача 7
+Требуется найти в бинарном векторе самую длинную последовательность единиц и вывести её длину.
+Желательно получить решение, работающее за линейное время и при этом проходящее по входному массиву только один раз.
+// Ответ:
+*/
+
+const fsread = require("fs");
+fsread.readFile('input.txt', 'utf8', 
+            function(error,data){
+                if(error) throw error; // если возникла ошибка
+                arr = data.split('\n'); 
+              // ++ insert your code here.
+            	
+  		  	let accumulator = 0;
+    			let max = 0;
+		
+    		for(let i=1; i<arr.length; i++){
+    				
+                if (arr[i] == 1){
+        		accumulator = accumulator + 1;
+       			max = Math.max(max,accumulator);
+       		} else {
+         		accumulator = 0;
+                    }
+ 		}
+    		 // --insert your code here.
+  			const fswrite = require('fs');
+			fswrite.writeFile('output.txt', max.toString());           
+});
