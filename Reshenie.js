@@ -196,3 +196,27 @@ fsread.readFile('input.txt', 'utf8',
   			const fswrite = require('fs');
 			fswrite.writeFile('output.txt', max.toString());           
 });
+
+/* Задача 8
+Даны две строки, состоящие из строчных латинских букв. Требуется определить, являются ли эти строки анаграммами, т. е. отличаются ли они только порядком следования символов.
+// Ответ:
+*/
+
+const fsread = require("fs");
+ 
+fsread.readFile('input.txt', 'utf8', 
+            function(error,data){
+                
+       		arr = data.split('\n');
+		
+   		stringy1 = arr[0].split('').sort().join('');
+   		stringy2 = arr[1].split('').sort().join('');
+
+		let result = "0";
+		if(stringy1 == stringy2){
+			result = "1";
+		}
+  		const fswrite = require('fs');
+		fswrite.writeFile('output.txt', result);
+            
+});
