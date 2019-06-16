@@ -300,3 +300,26 @@ fsread.readFile('input.txt', 'utf8',
 			fswrite.writeFile('output.txt', arr.join(' '));
             
 });
+
+/* Задача 11
+// Сумма чисел массива (вложенные массивы и представление числа).
+// ([1, 2, '3x']) => 6
+// ([1, 2, 'x3']) => 3
+// ([1, [1, 2], 2]) => 6
+// ([1, [1, [1, 2]], 2,]) => 7
+
+function sumArr (arrayInputed){
+	let result = 0;
+	for(let i = 0; i< arrayInputed.length; i++){
+		
+		if (Array.isArray(arrayInputed[i])){
+			result = result + sumArr(arrayInputed[i]);
+		} else{
+		result = result + (parseInt(arrayInputed[i]) || 0);	
+		}
+
+	}
+	return result;
+}
+
+
